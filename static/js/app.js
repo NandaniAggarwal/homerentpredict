@@ -1,3 +1,4 @@
+
 function getBathValue() {
   var uiBathrooms = document.getElementsByName("uiBathrooms");
   for(var i in uiBathrooms) {
@@ -29,8 +30,8 @@ function onClickedEstimatePrice() {
   var location = document.getElementById("uiLocations");
   var estPrice = document.getElementById("uiEstimatedPrice");
 
-   var url = "https://homerentpredict.onrender.com/predict_home_price"; //Use this if you are NOT using nginx which is first 7 tutorials
-    //  var url = "/api/predict_home_price"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
+   // FIX: Replaced hardcoded URL with the relative path.
+   var url = "/predict_home_price"; 
 
   $.post(url, {
       total_sqft: parseFloat(sqft.value),
@@ -46,9 +47,10 @@ function onClickedEstimatePrice() {
 
 function onPageLoad() {
   console.log( "document loaded" );
-      var url = "https://homerentpredict.onrender.com/get_location_names"; //Use this if you are NOT using nginx which is first 7 tutorials
-
-    // var url = "/api/get_location_names"; // Use this if  you are using nginx. i.e tutorial 8 and onwards  
+      
+  // FIX: Replaced hardcoded URL with the relative path.
+  var url = "/get_location_names"; 
+  
   $.get(url,function(data, status) {
       console.log("got response for get_location_names request");
       console.log(data)
@@ -65,4 +67,3 @@ function onPageLoad() {
 }
 
 window.onload = onPageLoad;
-
