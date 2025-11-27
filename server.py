@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import util
 
 app = Flask(__name__, template_folder='templates')
+util.load_saved_artifacts()
 
 @app.route('/')
 def home():
